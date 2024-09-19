@@ -19,7 +19,7 @@ export default async function evaluateAnswer(req: VercelRequest, res: VercelResp
         messages: [
           {
             role: 'user',
-            content: `Question: ${question}\nAnswer: ${answer}\nPlease evaluate the answer based on Accuracy, Depth, and Clarity using a scale of 1-10. Provide brief feedback for each category in the format "Category: Feedback". Example output: "Accuracy: 8 [Reason for score], Depth: 7 [Reason for score], Clarity: 9 [Reason for score]".`,
+            content: `Question: ${question}\nAnswer: ${answer}\nPlease evaluate the answer based on Accuracy, Depth, and Clarity using a scale of 1-10. Provide brief feedback for each category in the format "Category: Feedback".`,
           },
         ],
         max_tokens: 150,
