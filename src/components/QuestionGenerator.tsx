@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from './ui/button';
-import api from '../services/api';
+import api from '@/services/api';
 
 interface QuestionGeneratorProps {
   field: string;

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Textarea } from './ui/textarea';
 import { Button } from './ui/button';
-import api from '../services/api';
+import api from '@/services/api';
 import Feedback from './Feedback';
 
 interface AnswerEvaluatorProps {
