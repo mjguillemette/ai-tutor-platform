@@ -23,7 +23,7 @@ const ThumbsFeedback: React.FC<ThumbsFeedbackProps> = ({ questionId }) => {
   }
 
   return (
-    <div className="flex items-center space-x-2">
+    <div className="flex items-center space-x-2 justify-center">
       <p>Was this question and feedback helpful?</p>
       <Button onClick={() => handleFeedback(true)}>👍</Button>
       <Button onClick={() => handleFeedback(false)}>👎</Button>

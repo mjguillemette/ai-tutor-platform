@@ -8,7 +8,7 @@ interface DifficultySliderProps {
 }
 
 const DifficultySlider: React.FC<DifficultySliderProps> = ({ difficulty, setDifficulty }) => (
-  <div className="space-y-2">
+  <div className="space-y-6">
     <Label htmlFor="difficulty">Select Difficulty: {difficulty}</Label>
     <Slider
       id="difficulty"
