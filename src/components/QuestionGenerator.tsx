@@ -21,7 +21,7 @@ interface Question {
 }
 
 interface QuestionGeneratorProps {
-  onQuestionGenerated: (question: Question) => void;
+  onQuestionGenerated: (question: Question | null) => void;
 }
 
 const QuestionGenerator: React.FC<QuestionGeneratorProps> = ({
