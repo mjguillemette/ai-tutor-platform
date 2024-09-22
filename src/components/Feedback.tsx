@@ -1,7 +1,8 @@
-import React from 'react';
-import ThumbsFeedback from './ThumbsFeedback';
-import { RatingDisplay } from './RatingDisplay';
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import React from "react";
+import ThumbsFeedback from "./ThumbsFeedback";
+import { RatingDisplay } from "./RatingDisplay";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { AlertCircle } from "lucide-react";
 
 interface EvaluationCategory {
   rating: number;
@@ -22,26 +23,38 @@ interface FeedbackProps {
 }
 
 const Feedback: React.FC<FeedbackProps> = ({ evaluation }) => (
-  <div className="space-y-4">
-    <h3 className="text-2xl font-bold">Feedback:</h3>
-    {!evaluation.pass && (
-      <Alert variant="destructive">
-        <AlertTitle>Incorrect Answer</AlertTitle>
-        <AlertDescription>
-          {evaluation.explanation}
-          {evaluation.correctAnswer && (
-            <><br /><strong>Correct Answer:</strong> {evaluation.correctAnswer}</>
-          )}
-        </AlertDescription>
-      </Alert>
-    )}
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-      <RatingDisplay category="Accuracy" {...evaluation.accuracy} />
-      <RatingDisplay category="Depth" {...evaluation.depth} />
-      <RatingDisplay category="Clarity" {...evaluation.clarity} />
+  <>
+    <div className="space-y-6">
+      {/* Display alert for incorrect answers */}
+      {!evaluation.pass && (
+        <Alert variant="destructive">
+          <AlertCircle className="h-4 w-4" />
+          <AlertTitle>Incorrect Answer</AlertTitle>
+          <AlertDescription>
+            <p>
+              The user's answer correctly identifies the basic process of the
+              Central Dogma, but lacks the depth and detail of the sample
+              answer. It does not explain how this process relates to the
+              expression of genetic information in proteins, or the potential
+              effects of mutations.
+            </p>
+          </AlertDescription>
+        </Alert>
+      )}
+
+      {/* Rating displays for accuracy, depth, and clarity */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <RatingDisplay category="Accuracy" {...evaluation.accuracy} />
+        <RatingDisplay category="Depth" {...evaluation.depth} />
+        <RatingDisplay category="Clarity" {...evaluation.clarity} />
+      </div>
+
+      {/* Thumbs Feedback */}
+      <div className="mt-4">
+        <ThumbsFeedback />
+      </div>
     </div>
-    <ThumbsFeedback />
-  </div>
+  </>
 );
 
 export default Feedback;

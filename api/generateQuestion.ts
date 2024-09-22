@@ -33,7 +33,7 @@ export default async function generateQuestion(req: VercelRequest, res: VercelRe
           },
           {
             role: 'user',
-            content: `Generate an open-ended question in the field of ${field} with a difficulty level of ${difficulty} on a scale of 1-10. 
+            content: `Generate an open-ended question in the field of ${field} with a difficulty level of ${difficulty} on a scale of 1-10. 1 should be a very beginner question (3rd grade or very novice), and 10 should be a very advanced question. 
             
             Respond with a JSON object containing:
             1. "text": the question text
